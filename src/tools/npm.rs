@@ -18,9 +18,13 @@ use std::process::Command;
 #[function]
 pub async fn install_npm_package(
     package: String,
-    directory: Option<String>,
+    directory: String, // Now a required argument
 ) -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
-    let install_dir = directory.unwrap_or_else(|| ".".to_string());
+    let install_dir = if directory.is_empty() {
+        ".".to_string()
+    } else {
+        directory
+    };
 
     let npm_check = Command::new("npm").arg("--version").output();
     if npm_check.is_err() {

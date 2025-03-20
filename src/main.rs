@@ -9,6 +9,8 @@ use tools::parsers::{
     js_ts::summarize_js_or_ts_code, python::summarize_python_code, rust::summarize_rust_code,
 };
 
+use tools::npm::install_npm_package;
+
 use std::error::Error;
 use std::io::{self, Write};
 use std::time::Instant;
@@ -25,7 +27,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Sync + Send>> {
         create_directory,
         write_to_file,
         gather_directory_context,
-        read_file
+        read_file,
+        install_npm_package
     ];
     let model = "qwen2.5-coder:14b".to_string();
 

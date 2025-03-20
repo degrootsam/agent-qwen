@@ -1,0 +1,13 @@
+{
+  "name": "my-node-server",
+  "version": "1.0.0",
+  "description": "A basic Node.js server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "eslint": "^9.22.0",
+    "express": "^4.17.1"
+  }
+}
