@@ -2,8 +2,9 @@ mod tools;
 
 use ollama_rs::generation::tools::ToolGroup;
 use ollama_rs::{Ollama, coordinator::Coordinator, generation::chat::ChatMessage};
-use tools::fs_access::{create_directory, create_file, write_to_file};
-use tools::npm::install_npm_package;
+use tools::fs_access::{
+    create_directory, create_file, gather_directory_context, read_file, write_to_file,
+};
 use tools::parsers::{
     js_ts::summarize_js_or_ts_code, python::summarize_python_code, rust::summarize_rust_code,
 };
@@ -23,9 +24,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Sync + Send>> {
         create_file,
         create_directory,
         write_to_file,
-        // install_npm_package,
+        gather_directory_context,
+        read_file
     ];
-    let model = "qwen2.5-coder".to_string();
+    let model = "qwen2.5-coder:14b".to_string();
 
     let mut coordinator = Coordinator::new_with_tools(ollama, model, history, tools);
 

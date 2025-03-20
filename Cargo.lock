@@ -50,6 +50,7 @@ dependencies = [
  "reqwest",
  "schemars",
  "serde",
+ "serde_json",
  "swc_common",
  "swc_ecma_ast",
  "swc_ecma_parser",
@@ -57,6 +58,7 @@ dependencies = [
  "tokio",
  "tree-sitter",
  "tree-sitter-python",
+ "walkdir",
 ]
 
 [[package]]
@@ -2128,6 +2130,7 @@ version = "1.0.140"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "20068b6e96dc6c9bd23e01df8827e6c7e1f2fddd43c21810382803c136b99373"
 dependencies = [
+ "indexmap 2.8.0",
  "itoa",
  "memchr",
  "ryu",
@@ -2248,6 +2251,12 @@ name = "str-buf"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9e08d8363704e6c71fc928674353e6b7c23dcea9d82d7012c8faf2a3a025f8d0"
+
+[[package]]
+name = "streaming-iterator"
+version = "0.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2b2231b7c3057d5e4ad0156fb3dc807d900806020c5ffa3ee6ff2c8c76fb8520"
 
 [[package]]
 name = "string_cache"
@@ -2773,12 +2782,16 @@ dependencies = [
 
 [[package]]
 name = "tree-sitter"
-version = "0.21.0"
+version = "0.25.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "705bf7c0958d0171dd7d3a6542f2f4f21d87ed5f1dc8db52919d3a6bed9a359a"
+checksum = "b9ac5ea5e7f2f1700842ec071401010b9c59bf735295f6e9fa079c3dc035b167"
 dependencies = [
  "cc",
  "regex",
+ "regex-syntax 0.8.5",
+ "serde_json",
+ "streaming-iterator",
+ "tree-sitter-language",
 ]
 
 [[package]]
